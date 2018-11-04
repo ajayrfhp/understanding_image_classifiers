@@ -13153,8 +13153,8 @@ div#notebook {
 <li><p>We can make a layer sparse by adding a L1 regularizer on the activation.</p>
 </li>
 <li><p>Image : X, Target =&gt; y, Binarized sparse representation =&gt; g</p>
-<p><strong>Simple Model</strong>
-\begin{align}
+<p><strong>Simple Model</strong></p>
+<p>\begin{align}
   h &amp; = relu( W_1X + b_1) \\
   g &amp; = max(W_2h + b_2, 0) \\
   p &amp; = W_3x + b \\
@@ -13162,8 +13162,8 @@ div#notebook {
 \end{align}</p>
 </li>
 <li><p>Update weights using gradient descent</p>
-<p><strong>Conv net classifier</strong>
-\begin{align}
+<p><strong>Conv net classifier</strong></p>
+<p>\begin{align}
   a &amp; = Pool(Conv1(X)) \\
   b &amp; = Pool(Conv2(a)) \\
   c &amp; = Pool(Conv3(b)) \\
@@ -13496,20 +13496,21 @@ div#notebook {
 <p>Accuracy score on your test set is not generalization accuracy. The number of possible 28<em>28 grayscale images on a 0-1 scale, if we have round of all pixel values to 4 decimals, it is 28 </em> 28 * 10000 = 78 million images. Unless we test on a dataset whose test size is comparable to this 78 million, (say 10 million examples) I would be very suspsicious of the model's behaviour. Number of images in sample space increases exponentially with number of digits allowed. Such an expensive and exhaustive test can avoided if were to develop reliable models that can be attributable.</p>
 <p>Networks are easily subject to attacks. It is possible to add some amount of noise to change target class.</p>
 <ul>
-<li><p>### Step 2.1 <strong>Untargetted attacks</strong></p>
+<li><p>Step 2.1 <strong>Untargetted attacks</strong></p>
 <ul>
 <li><a href="https://arxiv.org/pdf/1412.6572.pdf">Fast signed gradient method</a></li>
 <li>In a neural network, input is also differentiable. </li>
 <li>Going in direction of positive gradient increases loss. </li>
 <li>Do gradient ascent to update input while constraining image to look like original results in a new image that looks indistinguishable to human but might belong to a different class with respect to the model.</li>
-<li><p>To move step size control to a hyper parameter, we fix gradient magnitude to 1 by using the sign function.</p>
-<p>Image - X, correct target - y</p>
-<p>\begin{align}
+<li><p>To move step size control to a hyper parameter, we fix gradient magnitude to 1 by using the sign function.
+\begin{align}
   p &amp;= Classifer(X) \\
   Loss &amp; = - CrossEntropy(p, y) \\
   X &amp;= X - |\frac{\partial Loss}{\partial Image}| \\
   X &amp;= Clamp(0,1) \\
 \end{align}</p>
+</li>
+<li><p>Image - X, correct target - y</p>
 </li>
 </ul>
 </li>
@@ -14260,22 +14261,15 @@ num attacked 11
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Step-2.2-Lame-targetted-attack">Step 2.2 Lame targetted attack<a class="anchor-link" href="#Step-2.2-Lame-targetted-attack">&#182;</a></h3><ul>
 <li>I am doing the lamest thing you can try.</li>
-<li><p>Slight tweak, we try to match image to a specific target category y'</p>
-
-<pre><code>                                           Image - X, Incorrect target - y'
-
-</code></pre>
-<p>\begin{align}</p>
-
-<pre><code> p &amp;= Classifer(X) \\
- Loss &amp; = - CrossEntropy(p, y') \\
- X &amp;= X - \lambda |\frac{\partial Loss}{\partial Image}| \\
- X &amp;= Clamp(0,1) \\
-</code></pre>
-<p>\end{align}</p>
-</li>
+<li>Slight tweak, we try to match image to a specific target category y'</li>
 </ul>
-<ul>
+\begin{align}
+    p &amp;= Classifer(X) \\
+    Loss &amp; = - CrossEntropy(p, y') \\
+    X &amp;= X - \lambda |\frac{\partial Loss}{\partial Image}| \\
+    X &amp;= Clamp(0,1) \\
+\end{align}<ul>
+<li>Image - X, Incorrect target - y'</li>
 <li>Should be harder to do. From my experiments only very few cases can attacked in a targetted manner and still look like the original image</li>
 </ul>
 
