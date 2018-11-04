@@ -1,6 +1,8 @@
 # understanding_image_classifiers
-[Github colab]
-(https://colab.research.google.com/github/ajayrfhp/understanding_image_classifiers/blob/master/understanding_image_classifiers.ipynb)
+
+
+[Github colab(https://colab.research.google.com/github/ajayrfhp/understanding_image_classifiers/blob/master/understanding_image_classifiers.ipynb)
+
 
 Consists of the following experiments
 
