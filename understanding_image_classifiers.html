@@ -14807,19 +14807,14 @@ I want to understand what they learn and regions in input that get recognized</p
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Step-3.2---Draw-most-confident-image">Step 3.2 - Draw most confident image<a class="anchor-link" href="#Step-3.2---Draw-most-confident-image">&#182;</a></h3><ul>
 <li>I wanted to find out the most confident image a network draws given a class. </li>
-<li><p>The idea is similar to FSGM, instead of going in the direction of gradient, we go towards direction of negative gradient.</p>
-
-<pre><code>                                           Image - X, correct target - y
-
-</code></pre>
-<p>\begin{align}</p>
-
+<li>The idea is similar to FSGM, instead of going in the direction of gradient, we go towards direction of negative gradient.
+  \begin{align}
 <pre><code>  p &amp;= Classifer(X) \\
   Loss &amp; = CrossEntropy(p, y) \\
   X &amp;= X - \frac{\partial Loss}{\partial Image} \\
 </code></pre>
-<p>\end{align}</p>
-</li>
+  \end{align}</li>
+<li>Image - X, correct target - y</li>
 <li><strong>Gradient descent over input with the objective to increase original class probability</strong></li>
 <li>One way of generating image given a class. More deeper take at <a href="https://arxiv.org/pdf/1705.08664.pdf">Invertible CNN</a></li>
 </ul>
