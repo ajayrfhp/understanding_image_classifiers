@@ -1,5 +1,9 @@
 # understanding_image_classifiers
-[Github colab](https://colab.research.google.com/github/ajayrfhp/understanding_image_classifiers/blob/master/understanding_image_classifiers.ipynb)
+
+
+[Google colab](https://colab.research.google.com/github/ajayrfhp/understanding_image_classifiers/blob/master/understanding_image_classifiers.ipynb)
+
+
 Consists of the following experiments
 
 	1. Sparse conv net classifier
